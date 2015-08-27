@@ -38,8 +38,7 @@ var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database(sqliteFile);
 var Batch = require("./batch.js");
 
-try
-{
+try {
 	// Per http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html#batchWriteItem-property
 	// No batch can have greater than 25 requests.
 	var MAX_BATCH_SIZE = 25;
