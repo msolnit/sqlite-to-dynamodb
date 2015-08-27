@@ -6,6 +6,21 @@ function Batch(tableName) {
 Batch.prototype.addRow = function(row) {
 	var item = {};
 
+	// See http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html#batchWriteItem-property
+
+	// Example "Item" JSON:
+	//
+	// "Item": {
+	//   "column1": {
+	//     "S": "foo"
+	//   },
+	//   "column2": {
+	//     "S": "bar"
+	//   }
+	// }
+
+	// Right now, we only support string values.
+
 	for (var column in row) {
 		var value = row[column];
 
