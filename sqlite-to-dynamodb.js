@@ -57,6 +57,9 @@ try {
 				batch = new Batch(dynamoTableName);
 			}
 		}, function(error, rowCount) {
+			// Invoked when we've finished processing every row.
+
+			// If there is any un-sent batch content, then send it now.
 			if (batch.getLength() > 0) {
 				sendBatch(batch);
 			}
